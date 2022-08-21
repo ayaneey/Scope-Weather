@@ -27,30 +27,3 @@ body {
   background-size: cover;
   font-family: "Montserrat", sans-serif;
 }
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.row {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-.icon {
-  height: 20px;
-  width: 20px;
-  fill: #fff;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-}
-
-input {
-  border: none;
-}

@@ -11,30 +11,29 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/normalize.css" />
-    <link rel="stylesheet" href="./assets/css/weather-icons.min.css" />
-
     <title>Scope Weather</title>
   </head>
 
   <body>
-    <header class="header">
-  <div class="row">
-    <div class="header__logo">
-     <h2><a href="#">Scope Weather</h2>
-    </div>
-    <p class="header__date">
-    </p>
-    <div class="header__search">
-     <a title="geolocate" href="#" class="header__geolocate" ><svg class="icon icon-target"><use xlink:href="#icon-target"></use></svg></a>
-     <form class="header__form">
-     <input type="search" placeholder="Type city name" class="header__search">
-     <button class="btn btn-primary" role="search"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg></button>
-     </div>
-    </div>
-  </div>
-</header>
+    <div class="weather-container">
+      <div class="weather-header">
+        <p>Sunday 03:00PM</p>
+        <h2>Birmingham</h2>
+      </div>
+      <div class="weather-body">
+        <div class="weather-temp-icon">
+          <img src="./assets/icons/cloud.svg" alt="cloud" />
+        </div>
 
-
+        <div class="weather-temp">
+          <div class="weather-temp-main">
+            <div class="weather-temp-value">9</div>
+            <div class="weather-temp-measure">
+              <p>°C | °F</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
