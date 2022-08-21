@@ -49,6 +49,7 @@ body {
   text-align: center;
   background-color: var(--peach-puff);
   margin-top: 15px;
+  padding: 10px 0;
 }
 
 .weather-body {
@@ -71,10 +72,20 @@ body {
 .weather-temp {
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 }
 
 .weather-temp-main {
   display: flex;
+}
+
+.weather-temp-actual-value {
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 2rem;
+  padding-top: 20px;
+  margin-right: 10px;
+  margin-bottom: 30px;
 }
 
 .weather-values {
@@ -84,4 +95,22 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+}
+
+.weather-values div {
+  padding: 10px;
+}
+
+.fahrenheit-value {
+  color: var(--yale-blue);
+}
+
+/* --------------------- Weather 5-day forecast styling --------------------- */
+.weather-forecast {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.weather-forecast img {
+  height: 30px;
 }
