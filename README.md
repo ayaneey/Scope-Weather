@@ -19,5 +19,6 @@
 
 <b>Github username: ayaneey/Scope-Weather
 <br>
-<b>Github URL:[https://github.com/ayaneey/password-generator](https://github.com/ayaneey/Scope-Weather)
+<b>Github URL: https://ayaneey.github.io/Scope-Weather/
+<br>Deployed URL: https://ayaneey.github.io/Scope-Weather/
   
