@@ -29,7 +29,7 @@ html {
 body {
   color: #fff;
   font-size: 1rem;
-  background-image: url(/assets/images/pexels-guillaume-meurice-1591447.jpg);
+  background-image: url(./assets/images/pexels-guillaume-meurice-1591447.jpg);
   background-size: cover;
   font-family: "Montserrat", sans-serif;
   display: flex;
