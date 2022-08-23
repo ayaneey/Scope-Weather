@@ -5,14 +5,12 @@ let cityName = document.getElementById("cityName");
 let weatherTime = document.getElementById("weatherTime");
 let weatherDay = document.getElementById("weatherDay");
 let tempValue = document.getElementById("tempValue");
+const form = document.querySelector(".top-banner form");
+const input = document.querySelector(".top-banner input");
+
 // let weatherIcon = document.getElementById("weatherIcon");
-var weatherIcon = "./icons/sun.svg";
-var weatherIcon = "./icons/cloud.svg";
-var weatherIcon = "./icons/cloud.svg";
-var weatherIcon = "./icons/rain.svg";
-var weatherIcon = "./icons/snow.svg";
-var weatherIcon = "./icons/thunderstorm.svg";
-var weatherIcon = "./icons/clouds-and-sun.svg";
+var weatherIcon;
+
 let weatherPressure = document.getElementById("weatherPressure");
 let weatherHumidity = document.getElementById("weatherHumidity");
 let weatherWind = document.getElementById("weatherWind");
@@ -44,7 +42,7 @@ function showWeather(data) {
     let time = new Date(data.dt * 1000);
     let day = time.toDateString().split(" ")[0];
     let hours = time.getHours();
-    let minutes = "0" + time.getMinutes();
+    let minutes = time.getMinutes();
     let formattedTime = `${hours}:${minutes}`;
     weatherTime.innerHTML = formattedTime;
     weatherDay.innerHTML = day;
@@ -53,19 +51,19 @@ function showWeather(data) {
 
     // showing the weather icon based on weather information
     if (data.weather[0].main == "Clear") {
-        weatherIcon.src = "./icons/sun.svg";
+       weatherIcon = "./icons/sun.svg";
     } else if (data.weather[0].main == "Clouds") {
-        weatherIcon.src = "./icons/clouds.svg";
+        weatherIcon = "./icons/clouds.svg";
     } else if (data.weather[0].main == "Cloud") {
-        weatherIcon.src = "./icons/cloud.svg";
+        weatherIcon = "./icons/cloud.svg";
     } else if (data.weather[0].main == "Rain") {
-        weatherIcon.src = "./icons/rain.svg";
+        weatherIcon = "./icons/rain.svg";
     } else if (data.weather[0].main == "Snow") {
-        weatherIcon.src = "./icons/snow.svg";
+        weatherIcon = "./icons/snow.svg";
     } else if (data.weather[0].main == "Thunderstorm") {
-        weatherIcon.src = "./icons/thunderstorm.svg";
+        weatherIcon= "./icons/thunderstorm.svg";
     } else if (data.weather[0].main == "Mist") {
-        weatherIcon.src = "./icons/clouds-and-sun.svg";
+        weatherIcon= "./icons/clouds-and-sun.svg";
     }
 
     weatherPressure.innerHTML = data.main.pressure;
@@ -111,3 +109,5 @@ function showFiveDayForecast(data) {
       weatherForecast.appendChild(div);
     }
 }
+
+/* ------------------------------ Searching for a city----------------------------- */

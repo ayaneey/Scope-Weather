@@ -39,6 +39,51 @@ body {
   font-size: 18px;
 }
 
+/* -------------------------- Search box container -------------------------- */
+/* .search-button {
+  background-color: var(--congo-pink);
+  display: flex;
+  flex-direction: row;
+  height: 45vh;
+  width: 15vw;
+}
+
+#search {
+  width: 15vw;
+  height: 5vh;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}  */
+
+button {
+  cursor: pointer;
+}
+
+input {
+  -webkit-appearance: none;
+}
+
+.type-here {
+  margin-top: 10px;
+  background-color: var(--peach-puff);
+  color: black;
+  height: 5vh;
+}
+
+button,
+input {
+  border: none;
+  background: none;
+  outline: none;
+  color: inherit;
+  background-color: var(--congo-pink);
+  display: flex;
+  flex-direction: row;
+  height: 23vh;
+  width: 20vw;
+  margin-right: 100px;
+}
+
 /* ---------------------------- Weather Container --------------------------- */
 .weather-container {
   background-color: var(--apricot);
