@@ -70,7 +70,19 @@ input {
   height: 5vh;
 }
 
-button,
+button {
+  border: none;
+  background: none;
+  outline: none;
+  color: inherit;
+  background-color: var(--congo-pink);
+  display: flex;
+  flex-direction: row;
+  height: 13vh;
+  width: 15vw;
+  margin-right: 100px;
+}
+
 input {
   border: none;
   background: none;
@@ -79,8 +91,8 @@ input {
   background-color: var(--congo-pink);
   display: flex;
   flex-direction: row;
-  height: 23vh;
-  width: 20vw;
+  height: 5vh;
+  width: 15vw;
   margin-right: 100px;
 }
 

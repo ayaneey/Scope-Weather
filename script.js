@@ -135,8 +135,8 @@ async function getCurrentWeather(city){
         weatherIcon = "./icons/sun.svg";
       } else if (data.weather[0].main == "Clouds") {
         weatherIcon = "./icons/clouds.svg";
-      } else if (data.weather[0].main == "Cloud") {
-        weatherIcon = "./icons/cloud.svg";
+      // } else if (data.weather[0].main == "Cloud") {
+      //   weatherIcon = "./icons/cloud.svg";
       } else if (data.weather[0].main == "Rain") {
         weatherIcon = "./icons/rain.svg";
       } else if (data.weather[0].main == "Snow") {
@@ -166,3 +166,4 @@ function searchButton(event) {
   getCurrentWeather(city)
 }
 
+ 
