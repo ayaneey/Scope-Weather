@@ -1,12 +1,12 @@
 /* -------------------------------- API KEY ------------------------------- */
 
 let APIKEY = "21d2cad1715d85751c0dddc41d01b75c";
+let cityInput = document.getElementById("inputNow");
 let cityName = document.getElementById("cityName");
 let weatherTime = document.getElementById("weatherTime");
 let weatherDay = document.getElementById("weatherDay");
 let tempValue = document.getElementById("tempValue");
-const form = document.querySelector(".top-banner form");
-const input = document.querySelector(".top-banner input");
+const btn = document.getElementsByClassName("btn");
 
 // let weatherIcon = document.getElementById("weatherIcon");
 var weatherIcon;
@@ -20,7 +20,7 @@ navigator.geolocation.getCurrentPosition((position) => {
   // Show a map centered at latitude / longitude.
   console.log(latitude, longitude);
 
-  getWeather(latitude, longitude);
+  // getWeather(latitude, longitude);
 });
 
 function getWeather(latitude, longitude) {
@@ -103,11 +103,66 @@ function showFiveDayForecast(data) {
       div.classList.add("weather-forecast-day-" + (i / 8 + 1));
       div.innerHTML = `
         <h3>${day}</h3>
-        <img src="./icons/${data.list[i].weather[0].main.toLowerCase()}.svg" alt=${data.list[i].weather[0].main}">
-        <p>${(data.list[i].main.temp_max - 273).toFixed(0)}°/${(data.list[i].main.temp_min - 273).toFixed(0)}°</p>
-      `
+        <img src="./icons/${data.list[
+          i
+        ].weather[0].main.toLowerCase()}.svg" alt=${
+        data.list[i].weather[0].main
+      }">
+        <p>${(data.list[i].main.temp_max - 273).toFixed(0)}°/${(
+        data.list[i].main.temp_min - 273
+      ).toFixed(0)}°</p>
+      `;
       weatherForecast.appendChild(div);
     }
 }
 
+async function getCurrentWeather(city){
+  let getCurrentWeather = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`
+  ).then(res=>res.json()).then(data=>{
+    console.log(data)
+    let time = new Date(data.dt * 1000);
+    let day = time.toDateString().split(" ")[0];
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    let formattedTime = `${hours}:${minutes}`;
+      weatherTime.innerHTML = formattedTime;
+      weatherDay.innerHTML = day;
+      cityName.innerHTML = data.name;
+      tempValue.innerHTML = (data.main.temp - 273).toFixed(0);
+      
+      if (data.weather[0].main == "Clear") {
+        weatherIcon = "./icons/sun.svg";
+      } else if (data.weather[0].main == "Clouds") {
+        weatherIcon = "./icons/clouds.svg";
+      } else if (data.weather[0].main == "Cloud") {
+        weatherIcon = "./icons/cloud.svg";
+      } else if (data.weather[0].main == "Rain") {
+        weatherIcon = "./icons/rain.svg";
+      } else if (data.weather[0].main == "Snow") {
+        weatherIcon = "./icons/snow.svg";
+      } else if (data.weather[0].main == "Thunderstorm") {
+        weatherIcon = "./icons/thunderstorm.svg";
+      } else if (data.weather[0].main == "Mist") {
+        weatherIcon = "./icons/clouds-and-sun.svg";
+      }
+      let imageEl = document.createElement("img");
+      imageEl.src = weatherIcon;
+      document.getElementsByClassName("weather-forecast")[0].appendChild(imageEl)
+      getFiveDayForecast(city)
+  });
+}
+
 /* ------------------------------ Searching for a city----------------------------- */
+console.log(btn);
+
+btn[0].addEventListener("click", searchButton);
+
+function searchButton(event) {
+  event.preventDefault()
+   let weatherForecast = document.querySelector(".weather-forecast");
+   weatherForecast.innerHTML = ""
+  let city = cityInput.value
+  getCurrentWeather(city)
+}
+
